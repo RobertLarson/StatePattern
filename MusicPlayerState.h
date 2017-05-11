@@ -14,18 +14,14 @@ class MusicPlayer;
 
 class MusicPlayerState {
 public:
-	MusicPlayerState(std::string name,
-			MusicPlayer * player);
+	MusicPlayerState(std::string name);
 	virtual ~MusicPlayerState();
 
-	virtual void Play();
-	virtual void Pause();
-	virtual void Stop();
+	virtual void Play(MusicPlayer * player);
+	virtual void Pause(MusicPlayer * player);
+	virtual void Stop(MusicPlayer * player);
 
 	std::string GetName() { return m_name; }
-
-protected:
-	MusicPlayer * m_pPlayer;
 
 private:
 	std::string   m_name;

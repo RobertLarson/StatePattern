@@ -14,11 +14,11 @@ class MusicPlayer;
 
 class PausedState : public MusicPlayerState {
 public:
-	PausedState(MusicPlayer * player);
+	PausedState();
 	virtual ~PausedState();
 
-	virtual void Play();
-	virtual void Stop();
+	virtual void Play(MusicPlayer * player);
+	virtual void Stop(MusicPlayer * player);
 };
 
 #endif /* PAUSEDSTATE_H_ */

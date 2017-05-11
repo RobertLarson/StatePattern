@@ -8,16 +8,16 @@
 #include "StoppedState.h"
 #include "MusicPlayer.h"
 
-StoppedState::StoppedState(MusicPlayer * player)
-: MusicPlayerState(std::string("Stopped"), player) {
+StoppedState::StoppedState()
+: MusicPlayerState(std::string("Stopped")) {
 }
 
 StoppedState::~StoppedState() {
 }
 
-void StoppedState::Play()
+void StoppedState::Play(MusicPlayer * player)
 {
-	m_pPlayer->SetState(MusicPlayer::ST_PLAYING);
+	player->SetState(MusicPlayer::ST_PLAYING);
 }
 
 

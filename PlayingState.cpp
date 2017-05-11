@@ -8,19 +8,19 @@
 #include "PlayingState.h"
 #include "MusicPlayer.h"
 
-PlayingState::PlayingState(MusicPlayer * player)
-: MusicPlayerState(std::string("Playing"), player) {
+PlayingState::PlayingState()
+: MusicPlayerState(std::string("Playing")) {
 }
 
 PlayingState::~PlayingState() {
 }
 
-void PlayingState::Pause()
+void PlayingState::Pause(MusicPlayer * player)
 {
-	m_pPlayer->SetState(MusicPlayer::ST_PAUSED);
+	player->SetState(MusicPlayer::ST_PAUSED);
 }
 
-void PlayingState::Stop()
+void PlayingState::Stop(MusicPlayer * player)
 {
-	m_pPlayer->SetState(MusicPlayer::ST_STOPPED);
+	player->SetState(MusicPlayer::ST_STOPPED);
 }

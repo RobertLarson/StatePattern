@@ -14,7 +14,7 @@
 #include <iostream>
 
 MusicPlayer::MusicPlayer()
-: m_pState(new StoppedState(this)){
+: m_pState(new StoppedState()){
 
 }
 
@@ -23,15 +23,15 @@ MusicPlayer::~MusicPlayer() {
 }
 
 void MusicPlayer::Play() {
-	m_pState->Play();
+	m_pState->Play(this);
 }
 
 void MusicPlayer::Pause() {
-	m_pState->Pause();
+	m_pState->Pause(this);
 }
 
 void MusicPlayer::Stop() {
-	m_pState->Stop();
+	m_pState->Stop(this);
 }
 
 void MusicPlayer::SetState(State state)
@@ -41,15 +41,15 @@ void MusicPlayer::SetState(State state)
 
 	if(state == ST_STOPPED)
 	{
-		m_pState = new StoppedState(this);
+		m_pState = new StoppedState();
 	}
 	else if(state == ST_PLAYING)
 	{
-		m_pState = new PlayingState(this);
+		m_pState = new PlayingState();
 	}
 	else
 	{
-		m_pState = new PausedState(this);
+		m_pState = new PausedState();
 	}
 
 	std::cout << m_pState->GetName() << " state\n";
